@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-row class="ion-align-items-center">
+        <div class="sketch-logo-sm">
+          <img src="assets/icons/edit.png" alt="Edit" />
+        </div>
+        &nbsp;Create Sketch
+      </ion-row>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="backToList()"> Back to List</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="sketchForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="stacked">Name</ion-label>
+            <ion-input type="text" formControlName="name" name="name" required="true" maxlength="50"></ion-input>
+
+          </ion-item>
+          <div *ngIf="name.errors && name.touched">
+            <span *ngIf="name.errors?.required" class="sketch-error">
+              Name required
+            </span><br>
+            <span *ngIf="name.errors?.maxlength" class="sketch-error">
+              Name should have 50 characters or less
+            </span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="8">
+          <ion-item>
+            <ion-label position="stacked">Description</ion-label>
+            <ion-textarea formControlName="description" name="description" minlength="10" required="true">
+            </ion-textarea>
+
+          </ion-item>
+          <div *ngIf="description.errors && description.touched">
+            <span *ngIf="description.errors?.required" class="sketch-error">
+              Description required
+            </span> <br>
+            <span *ngIf="description.errors?.minlength" class="sketch-error">
+              Description should have a minimum of 10 characters
+            </span>
+            <span *ngIf="description.errors?.maxlength" class="sketch-error">
+              Description should have 200 characters or less
+            </span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-margin-top">
+        <div class="sketch-create-sketch__canvas-toolbar ion-align-items-center">
+          <div class="sketch-create-sketch__color-container">
+            <img src="assets/icons/color.png" alt="Color" height="36">
+            <div *ngFor="let color of colors" class="sketch-create-sketch__color-{{color}}"
+              [class.active]="color === activeColor" (click)="activeColor = color"></div>
+          </div>
+          <div class="sketch-create-sketch__pen-container">
+            <img src="assets/icons/pen.png" alt="Color" height="36">
+            <div *ngFor="let size of sizes" class="sketch-create-sketch__pen-{{size}}"
+              [class.active]="activeSize === size" (click)="activeSize = size">
+              <div></div>
+            </div>
+          </div>
+
+          <img (click)="reset()" class="sketch-create-sketch__reset" src="assets/icons/reset.png" alt="Reset"
+            height="32">
+        </div>
+        <div id="canvasContainer"></div>
+      </ion-row>
+      <ion-row>
+        <ion-button [disabled]="!sketchForm.valid || isCreating" (click)="createSketch()"
+          class="sketch-create-sketch__create-btn ion-margin-top" color="danger">
+          <img *ngIf="!isCreating; else loading" src="assets/icons/edit.png" height="24" alt="Edit">
+          <ng-template #loading>
+            <img src="assets/icons/loader.gif" alt="Loader" height="24" alt="Loading">
+          </ng-template>
+
+          &nbsp;Create Sketch
+        </ion-button>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>

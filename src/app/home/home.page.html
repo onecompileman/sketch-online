@@ -1,20 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <div id="canvasContainer"></div>
+  <ion-grid class="sketch-home__container">
+    <ion-row class="ion-justify-content-center sketch-home__name-container">
+      <div class="sketch-home__logo">
+        <img src="assets/icons/edit.png" height="48" alt="Edit" />
+      </div>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+      &nbsp;
+      <h1 class="sketch-home__app-name">
+        Sketch
+      </h1>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-button (click)="login()" class="sketch-home__login" color="primary">
+        Login
+      </ion-button>
+    </ion-row>
+  </ion-grid>
 </ion-content>

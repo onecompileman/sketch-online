@@ -1,0 +1,37 @@
+.sketch-my-sketch {
+  &__create-btn {
+    // background-color: #05DFD7;
+    box-shadow: 4px 4px #000;
+    width: 200px;
+    margin: 6px;
+  }
+
+  &__fab-create-btn {
+    border-radius: 100%;
+    box-shadow: 4px 4px #000;
+  }
+}
+
+.sketch-list-item {
+  box-shadow: 5px 5px #000;
+  margin: 10px;
+
+  .name {
+    font-size: 24px;
+    margin-top: -5px;
+    padding-top: 7px;
+    height: 36px;
+    background-color: #f25588;
+    color: white;
+    text-align: center;
+  }
+
+  .sketch-action {
+    position: absolute;
+    margin: 10px;
+
+    img {
+      cursor: pointer;
+    }
+  }
+}

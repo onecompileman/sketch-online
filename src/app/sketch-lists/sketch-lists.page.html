@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-row class="ion-align-items-center">
+        <div class="sketch-logo-sm">
+          <img src="assets/icons/edit.png" alt="Edit" />
+        </div>
+        &nbsp;Sketches
+      </ion-row>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-item class="cursor-pointer" (click)="avatarClick($event)">
+        <ion-avatar slot="start">
+          <img [src]="user?.photoURL" />
+        </ion-avatar>
+        <ion-label>{{ user?.displayName }}</ion-label>
+      </ion-item>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-grid class="ion-margin-top">
+    <ion-row>
+      <div *ngFor="let sketch of sketches" class="sketch-list-item">
+        <img [src]="sketch.thumbnailURL" alt="Thumbnail" width="350" />
+        <div (click)="viewSketch(sketch.id)" class="name cursor-pointer">{{ sketch.name }} by
+          <b>{{ sketch.owner ? sketch.owner.displayName : 'Unknown' }}</b></div>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

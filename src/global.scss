@@ -10,17 +10,47 @@
  */
 
 /* Core CSS required for Ionic components to work properly */
-@import "~@ionic/angular/css/core.css";
+@import '~@ionic/angular/css/core.css';
 
 /* Basic CSS for apps built with Ionic */
-@import "~@ionic/angular/css/normalize.css";
-@import "~@ionic/angular/css/structure.css";
-@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
 @import '~@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
-@import "~@ionic/angular/css/padding.css";
-@import "~@ionic/angular/css/float-elements.css";
-@import "~@ionic/angular/css/text-alignment.css";
-@import "~@ionic/angular/css/text-transformation.css";
-@import "~@ionic/angular/css/flex-utils.css";
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+body {
+  background-color: #cecece;
+}
+
+div {
+  border-radius: 0;
+}
+
+.sketch-logo-sm {
+  margin: 10px;
+  height: 32px;
+  width: 32px;
+  background-color: white;
+  border: 2px solid #f25588;
+  border-radius: 3px;
+  box-shadow: 4px 4px #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sketch-error {
+  color: #dd5044;
+  font-size: 12px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

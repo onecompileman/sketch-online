@@ -1,27 +1,42 @@
-#container {
-  text-align: center;
+.sketch-home {
+  &__container {
+    z-index: 9;
+    position: relative;
+  }
 
+  &__app-name {
+    font-size: 48px;
+    font-weight: 700;
+    color: #f25588;
+    text-shadow: 1px 1px #000;
+  }
+
+  &__logo {
+    height: 64px;
+    width: 64px;
+    background-color: white;
+    border: 3px solid #f25588;
+    border-radius: 3px;
+    box-shadow: 4px 4px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__name-container {
+    margin-top: 150px;
+  }
+
+  &__login {
+    background-color: #05dfd7;
+    box-shadow: 4px 4px #000;
+    width: 200px;
+  }
+}
+
+#canvasContainer {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
 }

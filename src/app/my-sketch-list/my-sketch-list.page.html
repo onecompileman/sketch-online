@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-row class="ion-align-items-center">
+        <div class="sketch-logo-sm">
+          <img src="assets/icons/edit.png" alt="Edit" />
+        </div>
+        &nbsp;My Sketches
+      </ion-row>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-item class="cursor-pointer" (click)="avatarClick($event)">
+        <ion-avatar slot="start">
+          <img [src]="user?.photoURL" />
+        </ion-avatar>
+        <ion-label>{{ user?.displayName }}</ion-label>
+      </ion-item>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button (click)="backToSketchList()" class="sketch-my-sketch__create-btn" color="light">
+    Back to Sketch Lists
+  </ion-button>
+
+  <ion-button (click)="createSketch()" class="sketch-my-sketch__create-btn" color="danger">
+    <img src="assets/icons/edit.png" height="24" alt="Edit" />&nbsp;Create
+    Sketch
+  </ion-button>
+  <ion-grid class="ion-margin-top">
+    <ion-row>
+      <div *ngFor="let sketch of sketches" class="sketch-list-item">
+        <div class="sketch-action">
+          <img (click)="deleteSketch(sketch)" src="assets/icons/delete.png" alt="Delete" height="24" />
+          <img (click)="editSketch(sketch.id)" src="assets/icons/edit.png" alt="Edit" height="24" />
+        </div>
+        <img [src]="sketch.thumbnailURL" alt="Thumbnail" width="350" />
+        <div (click)="viewSketch(sketch.id)" class="name cursor-pointer">{{ sketch.name }}</div>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>
